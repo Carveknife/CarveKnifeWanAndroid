@@ -44,7 +44,8 @@ ext {
 
             "banner"                 : "com.youth.banner:banner:2.1.0",
             "agentweb"               : "com.just.agentweb:agentweb:4.1.4",
-            "coroutines"             : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
+            "coroutines"             : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1",
+            "android_utils"          : "com.blankj:utilcodex:1.30.5"
     ]
 
     libraries = depend.values()

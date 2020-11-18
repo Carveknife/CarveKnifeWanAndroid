@@ -1,8 +1,12 @@
 package cn.carveknife.carveknifewanandroid.view.splash
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -11,8 +15,14 @@ import cn.carveknife.carveknifewanandroid.base.BaseActivity
 import cn.carveknife.carveknifewanandroid.databinding.ActivitySplashBinding
 import cn.carveknife.carveknifewanandroid.module.Router
 import io.reactivex.Observable
+import java.lang.ref.SoftReference
+import java.lang.ref.WeakReference
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>() {
+    companion object {
+        private val TIME: Long = 1500L
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView();
@@ -58,8 +68,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
             override fun onAnimationEnd(animation: Animation?) {
                 mViewBinding.tvCarveKnife.clearAnimation()
-                Router.routeToMain(getContext())
-                finish()
+                executeNextAction();
+
             }
 
             override fun onAnimationStart(animation: Animation?) {
@@ -67,5 +77,20 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
         })
         mViewBinding.tvCarveKnife.startAnimation(tvLoadAnimation)
+    }
+
+    private fun executeNextAction() {
+        val weakReference = WeakReference<SplashActivity>(this)
+        Handler(Looper.getMainLooper()).postDelayed({
+            val reference = weakReference.get()
+            reference.let {
+                Router.routeToMain(getContext())
+                finish()
+            }
+        }, TIME)
+    }
+
+    override fun onBackPressed() {
+
     }
 }
