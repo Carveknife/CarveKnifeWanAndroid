@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     companion object {
         private val BOTTOM_NAVIGATION_NAMES = arrayListOf<String>("首页", "公众号", "项目", "导航", "知识体系")
-        public fun getCallingIntent(context: Context): Intent {
+        internal fun getCallingIntent(context: Context): Intent {
             return Intent(context, MainActivity::class.java)
         }
     }
@@ -35,21 +35,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun initBottomNavigation() {
-        mViewBinding.bottomNavigationView.labelVisibilityMode =
-            LabelVisibilityMode.LABEL_VISIBILITY_LABELED
-        mViewBinding.bottomNavigationView.setOnNavigationItemSelectedListener(object :
-            BottomNavigationView.OnNavigationItemSelectedListener {
-            override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                when (item.itemId) {
-                    R.id.home -> displayTitle(BOTTOM_NAVIGATION_NAMES[0])
-                    R.id.wechat -> displayTitle(BOTTOM_NAVIGATION_NAMES[1])
-                    R.id.project -> displayTitle(BOTTOM_NAVIGATION_NAMES[2])
-                    R.id.navigation -> displayTitle(BOTTOM_NAVIGATION_NAMES[3])
-                    R.id.knowledge_tree -> displayTitle(BOTTOM_NAVIGATION_NAMES[4])
+        mViewBinding.bottomNavigationView.let {
+            it.labelVisibilityMode =
+                LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+            it.setOnNavigationItemSelectedListener(object :
+                BottomNavigationView.OnNavigationItemSelectedListener {
+                override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                    when (item.itemId) {
+                        R.id.home -> displayTitle(BOTTOM_NAVIGATION_NAMES[0])
+                        R.id.wechat -> displayTitle(BOTTOM_NAVIGATION_NAMES[1])
+                        R.id.project -> displayTitle(BOTTOM_NAVIGATION_NAMES[2])
+                        R.id.navigation -> displayTitle(BOTTOM_NAVIGATION_NAMES[3])
+                        R.id.knowledge_tree -> displayTitle(BOTTOM_NAVIGATION_NAMES[4])
+                    }
+                    return true
                 }
-                return true
-            }
-        })
+            })
+        }
+
         displayTitle(BOTTOM_NAVIGATION_NAMES[0])
     }
 
