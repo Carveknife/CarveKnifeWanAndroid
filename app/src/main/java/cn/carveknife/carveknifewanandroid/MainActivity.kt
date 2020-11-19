@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.RecyclerView
 import cn.carveknife.carveknifewanandroid.base.BaseActivity
 import cn.carveknife.carveknifewanandroid.databinding.ActivityMainBinding
+import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
@@ -75,6 +76,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 return true
             } else {
                 finish()
+                AppUtils.exitApp()
             }
         }
         return super.onKeyDown(keyCode, event)
