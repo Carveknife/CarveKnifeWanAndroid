@@ -1,9 +1,6 @@
 package cn.carveknife.carveknifewanandroid
 
-import android.app.Activity
 import android.app.Application
-import com.blankj.utilcode.util.AppUtils
-import com.blankj.utilcode.util.Utils
 
 /**
  * description :

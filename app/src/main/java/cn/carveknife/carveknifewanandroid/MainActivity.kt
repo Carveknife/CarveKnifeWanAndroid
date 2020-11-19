@@ -4,15 +4,21 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.MenuItem
+import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.RecyclerView
 import cn.carveknife.carveknifewanandroid.base.BaseActivity
 import cn.carveknife.carveknifewanandroid.databinding.ActivityMainBinding
+import com.blankj.utilcode.util.ToastUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+    private var lastExitTime: Long = 0L
+
     companion object {
         private val BOTTOM_NAVIGATION_NAMES = arrayListOf<String>("首页", "公众号", "项目", "导航", "知识体系")
         internal fun getCallingIntent(context: Context): Intent {
@@ -57,6 +63,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun displayTitle(title: String?) {
-        mViewBinding.appBar.toolbar.title = title
+        supportActionBar?.setTitle(title)
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        if (KeyEvent.KEYCODE_BACK == keyCode) {
+            val currentTime = System.currentTimeMillis()
+            if (currentTime - lastExitTime > 1500) {
+                ToastUtils.showShort(R.string.exit_hint)
+                lastExitTime = currentTime
+                return true
+            } else {
+                finish()
+            }
+        }
+        return super.onKeyDown(keyCode, event)
     }
 }

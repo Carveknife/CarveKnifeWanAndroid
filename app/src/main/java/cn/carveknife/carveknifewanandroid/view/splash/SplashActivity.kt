@@ -20,13 +20,14 @@ import java.lang.ref.WeakReference
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     companion object {
-        private val TIME: Long = 1500L
+        private val TIME: Long = 3000L
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initView();
         initReback();
+        initView();
+        executeNextAction();
     }
 
     private fun initReback() {
@@ -68,7 +69,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
             override fun onAnimationEnd(animation: Animation?) {
                 mViewBinding.tvCarveKnife.clearAnimation()
-                executeNextAction();
 
             }
 
