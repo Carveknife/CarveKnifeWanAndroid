@@ -21,4 +21,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation_bottom" />
 
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="@dimen/s_0dp"
+        android:layout_height="@dimen/s_0dp"
+        app:layout_constraintBottom_toTopOf="@+id/app_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

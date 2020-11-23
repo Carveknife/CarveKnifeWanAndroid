@@ -17,7 +17,7 @@ abstract class BaseActivity<V : ViewBinding> : AppCompatActivity() {
         setOrientataion();
         super.onCreate(savedInstanceState)
         initViewBinding();
-        setContentView(mViewBinding?.root)
+        setContentView(mViewBinding.root)
     }
 
     private fun setOrientataion() {
