@@ -4,10 +4,7 @@ import cn.carveknife.carveknifewanandroid.http.HttpConstant
 import okhttp3.Interceptor
 import okhttp3.Response
 
-/**
- * Author: Sbingo666
- * Date:   2019/4/3
- */
+
 class CookieInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {

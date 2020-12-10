@@ -2,8 +2,7 @@ package cn.carveknife.carveknifewanandroid.http
 
 
 /**
- * Author: Sbingo666
- * Date:   2019/4/4
+ * Author: cuibg
  */
 data class HttpResponse<T>(
     var data: T?,

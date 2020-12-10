@@ -11,10 +11,6 @@ import java.io.IOException
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
 
-/**
- * Author: Sbingo666
- * Date:   2019/4/3
- */
 class LoggingInterceptor @JvmOverloads constructor(private val logger: Logger = Logger.DEFAULT) : Interceptor {
 
     @Volatile
