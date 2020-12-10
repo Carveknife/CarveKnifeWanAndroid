@@ -5,5 +5,5 @@ package cn.carveknife.carveknifewanandroid.respository
  * created time: 2020/11/19 16:52
  * created by: cuibenguang
  */
-class BaseRepository<T> {
+open class BaseRepository<T> {
 }

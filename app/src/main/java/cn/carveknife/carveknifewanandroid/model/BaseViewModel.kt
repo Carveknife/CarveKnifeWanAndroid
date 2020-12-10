@@ -8,6 +8,6 @@ import cn.carveknife.carveknifewanandroid.respository.BaseRepository
  * created time: 2020/11/19 16:51
  * created by: cuibenguang
  */
-class BaseViewModel<T>(respository: BaseRepository<T>) : ViewModel() {
+open class BaseViewModel<T>(respository: BaseRepository<T>) : ViewModel() {
 
 }
