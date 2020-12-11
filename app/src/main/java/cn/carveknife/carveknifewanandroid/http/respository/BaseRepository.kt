@@ -8,4 +8,9 @@ import cn.carveknife.carveknifewanandroid.respository.Repository
  * created by: cuibenguang
  */
 open abstract class BaseRepository<T> : Repository<T> {
+//    fun getDatas(): T {
+//        val createDataStoreFactory = createDataStoreFactory()
+//        val createDatasouce = createDataStoreFactory.createDatasouce()
+//        createDatasouce.requestDatas()
+//    }
 }

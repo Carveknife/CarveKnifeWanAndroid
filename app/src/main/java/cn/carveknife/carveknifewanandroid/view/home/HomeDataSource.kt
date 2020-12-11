@@ -2,6 +2,7 @@ package cn.carveknife.carveknifewanandroid.view.home
 
 import cn.carveknife.carveknifewanandroid.data.entity.HomeEntity
 import cn.carveknife.carveknifewanandroid.http.HttpManager
+import cn.carveknife.carveknifewanandroid.http.asyncSubscribe
 import cn.carveknife.carveknifewanandroid.http.datastore.DataSource
 
 /**
@@ -10,7 +11,8 @@ import cn.carveknife.carveknifewanandroid.http.datastore.DataSource
  * created by: cuibenguang
  */
 class HomeDataSource constructor(private val httpManager: HttpManager) : DataSource<HomeEntity> {
-    override fun requestDatas() {
+    override fun requestDatas(): HomeEntity {
+        return HomeEntity("")
     }
 
 }

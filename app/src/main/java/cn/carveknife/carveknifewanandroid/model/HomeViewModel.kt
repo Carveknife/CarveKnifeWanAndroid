@@ -1,5 +1,6 @@
 package cn.carveknife.carveknifewanandroid.model
 
+import androidx.lifecycle.Transformations
 import cn.carveknife.carveknifewanandroid.data.entity.HomeEntity
 import cn.carveknife.carveknifewanandroid.respository.HomeRepository
 
@@ -9,5 +10,5 @@ import cn.carveknife.carveknifewanandroid.respository.HomeRepository
  * created by: cuibenguang
  */
 class HomeViewModel(respository: HomeRepository) : BaseViewModel<HomeEntity>(respository) {
-    
+    val result = respository.
 }

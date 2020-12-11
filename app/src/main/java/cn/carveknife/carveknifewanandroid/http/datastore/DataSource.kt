@@ -6,5 +6,5 @@ package cn.carveknife.carveknifewanandroid.http.datastore
  * created by: cuibenguang
  */
 interface DataSource<T> {
-    fun requestDatas()
+    fun requestDatas():T
 }

@@ -24,11 +24,11 @@ class HomeFragment : LazyBaseFragment<FragmentHomeBinding>() {
         }).get(HomeViewModel::class.java);
     }
 
-    override fun lazyInit() {
-
-    }
-
     override fun initView() {
         mViewBinding = FragmentHomeBinding.inflate(LayoutInflater.from(activity))
+    }
+
+    override fun lazyInit() {
+//        mViewBinding.recyclerHome.adapter =
     }
 }
