@@ -1,20 +1,27 @@
 package cn.carveknife.carveknifewanandroid.view.home
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import cn.carveknife.carveknifewanandroid.R
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import cn.carveknife.carveknifewanandroid.base.LazyBaseFragment
 import cn.carveknife.carveknifewanandroid.databinding.FragmentHomeBinding
+import cn.carveknife.carveknifewanandroid.http.HttpManager
+import cn.carveknife.carveknifewanandroid.model.HomeViewModel
+import cn.carveknife.carveknifewanandroid.respository.HomeRepository
 
 class HomeFragment : LazyBaseFragment<FragmentHomeBinding>() {
     private var param1: String? = null
     private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private val viewModel by lazy {
+        @Suppress("UNCHECKED_CAST")
+        ViewModelProvider(this, object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                val homeRepository = HomeRepository(HttpManager.getInstance())
+                return HomeViewModel(homeRepository) as T
+            }
+
+        }).get(HomeViewModel::class.java);
     }
 
     override fun lazyInit() {
