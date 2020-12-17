@@ -1,9 +1,11 @@
 package cn.carveknife.carveknifewanandroid.view.home
 
 import android.view.LayoutInflater
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import cn.carveknife.carveknifewanandroid.base.LazyBaseFragment
+import cn.carveknife.carveknifewanandroid.data.entity.HomeEntity
 import cn.carveknife.carveknifewanandroid.databinding.FragmentHomeBinding
 import cn.carveknife.carveknifewanandroid.http.HttpManager
 import cn.carveknife.carveknifewanandroid.model.HomeViewModel
@@ -29,6 +31,11 @@ class HomeFragment : LazyBaseFragment<FragmentHomeBinding>() {
     }
 
     override fun lazyInit() {
-//        mViewBinding.recyclerHome.adapter =
+        viewModel.run {
+            resResult.observe(viewLifecycleOwner, Observer {
+
+            })
+        }
+
     }
 }

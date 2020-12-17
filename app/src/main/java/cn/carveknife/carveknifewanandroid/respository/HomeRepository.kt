@@ -16,4 +16,8 @@ class HomeRepository constructor(private val httpManager: HttpManager) :
     override fun createDataStoreFactory(): DataSourceFactory<HomeEntity> {
         return HomeDataSourceFactory(httpManager)
     }
+
+    fun getDatas(): HomeEntity {
+        return HomeEntity("")
+    }
 }
