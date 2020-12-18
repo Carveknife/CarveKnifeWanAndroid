@@ -1,12 +1,10 @@
-package cn.carveknife.carveknifewanandroid.view.splash
+package cn.carveknife.carveknifewanandroid.ui.splash
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -14,8 +12,6 @@ import cn.carveknife.carveknifewanandroid.R
 import cn.carveknife.carveknifewanandroid.base.BaseActivity
 import cn.carveknife.carveknifewanandroid.databinding.ActivitySplashBinding
 import cn.carveknife.carveknifewanandroid.module.Router
-import io.reactivex.Observable
-import java.lang.ref.SoftReference
 import java.lang.ref.WeakReference
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>() {

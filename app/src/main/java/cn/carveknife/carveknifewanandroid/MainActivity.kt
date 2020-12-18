@@ -9,11 +9,11 @@ import android.view.MenuItem
 import androidx.lifecycle.Lifecycle
 import cn.carveknife.carveknifewanandroid.base.BaseActivity
 import cn.carveknife.carveknifewanandroid.databinding.ActivityMainBinding
-import cn.carveknife.carveknifewanandroid.view.home.HomeFragment
-import cn.carveknife.carveknifewanandroid.view.knowledge.KnowledgeFragment
-import cn.carveknife.carveknifewanandroid.view.navigation.NavigationFragment
-import cn.carveknife.carveknifewanandroid.view.project.ProjectFragment
-import cn.carveknife.carveknifewanandroid.view.wechat.WechatFragment
+import cn.carveknife.carveknifewanandroid.ui.home.HomeFragment
+import cn.carveknife.carveknifewanandroid.ui.knowledge.KnowledgeFragment
+import cn.carveknife.carveknifewanandroid.ui.navigation.NavigationFragment
+import cn.carveknife.carveknifewanandroid.ui.project.ProjectFragment
+import cn.carveknife.carveknifewanandroid.ui.wechat.WechatFragment
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView

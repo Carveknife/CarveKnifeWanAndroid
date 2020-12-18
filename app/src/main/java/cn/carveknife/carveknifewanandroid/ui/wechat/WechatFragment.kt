@@ -1,4 +1,4 @@
-package cn.carveknife.carveknifewanandroid.view.wechat
+package cn.carveknife.carveknifewanandroid.ui.wechat
 
 import android.view.LayoutInflater
 import cn.carveknife.carveknifewanandroid.base.LazyBaseFragment

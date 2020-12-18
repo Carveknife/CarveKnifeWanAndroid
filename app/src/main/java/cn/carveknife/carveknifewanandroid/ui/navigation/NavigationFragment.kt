@@ -1,8 +1,6 @@
-package cn.carveknife.carveknifewanandroid.view.navigation
+package cn.carveknife.carveknifewanandroid.ui.navigation
 
-import android.util.Log
 import android.view.LayoutInflater
-import cn.carveknife.carveknifewanandroid.base.BaseFragment
 import cn.carveknife.carveknifewanandroid.base.LazyBaseFragment
 import cn.carveknife.carveknifewanandroid.databinding.ActivityMainBinding
 import cn.carveknife.carveknifewanandroid.databinding.FragmentNavigationBinding

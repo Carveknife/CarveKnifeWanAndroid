@@ -1,9 +1,9 @@
-package cn.carveknife.carveknifewanandroid.view.home
+package cn.carveknife.carveknifewanandroid.ui.home
 
+import cn.carveknife.carveknifewanandroid.base.paging.BaseDataSourceFactory
+import cn.carveknife.carveknifewanandroid.base.paging.BaseItemKeyedDataSource
 import cn.carveknife.carveknifewanandroid.data.entity.HomeEntity
 import cn.carveknife.carveknifewanandroid.http.HttpManager
-import cn.carveknife.carveknifewanandroid.http.datastore.DataSource
-import cn.carveknife.carveknifewanandroid.http.datastore.DataSourceFactory
 
 /**
  * description :
@@ -11,9 +11,8 @@ import cn.carveknife.carveknifewanandroid.http.datastore.DataSourceFactory
  * created by: cuibenguang
  */
 class HomeDataSourceFactory constructor(private val httpManager: HttpManager) :
-    DataSourceFactory<HomeEntity> {
-    override fun createDatasouce(): DataSource<HomeEntity> {
+    BaseDataSourceFactory<HomeEntity>() {
+    override fun createDataStore(): BaseItemKeyedDataSource<HomeEntity> {
         return HomeDataSource(httpManager)
     }
-
 }

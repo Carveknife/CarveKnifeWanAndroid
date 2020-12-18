@@ -1,4 +1,4 @@
-package cn.carveknife.carveknifewanandroid.view.knowledge
+package cn.carveknife.carveknifewanandroid.ui.knowledge
 
 import android.view.LayoutInflater
 import cn.carveknife.carveknifewanandroid.base.LazyBaseFragment

@@ -6,5 +6,6 @@ package cn.carveknife.carveknifewanandroid.data.entity
  * created by: cuibenguang
  */
 data class HomeEntity(
-    val name: String
+    val name: String,
+    val id: Int
 )
