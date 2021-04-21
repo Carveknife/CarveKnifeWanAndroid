@@ -12,8 +12,10 @@ import cn.carveknife.carveknifewanandroid.R
 import cn.carveknife.carveknifewanandroid.base.BaseActivity
 import cn.carveknife.carveknifewanandroid.databinding.ActivitySplashBinding
 import cn.carveknife.carveknifewanandroid.module.Router
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.ref.WeakReference
 
+@AndroidEntryPoint
 class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     companion object {
         private val TIME: Long = 3000L

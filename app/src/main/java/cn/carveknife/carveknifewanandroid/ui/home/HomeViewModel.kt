@@ -1,13 +1,16 @@
 package cn.carveknife.carveknifewanandroid.ui.home
 
-import cn.carveknife.carveknifewanandroid.base.paging.BasePagingViewModel
-import cn.carveknife.carveknifewanandroid.data.entity.HomeEntity
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 /**
  * description :
  * created time: 2020/12/10 11:49
  * created by: cuibenguang
  */
-class HomeViewModel(respository: HomeRepository) : BasePagingViewModel<HomeEntity>(respository) {
-
+class HomeViewModel(respository: HomeDataRepository) : ViewModel() {
+    private val pageSize = MutableLiveData<Int>()
+//    private val repoResult = Transformations.map() {
+//        respository.getArticleData()
+//    }
 }

@@ -18,7 +18,9 @@ import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     private var lastExitTime: Long = 0L
     private val mFragments by lazy {
@@ -102,7 +104,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun displayCurrentFragment(showPosition: Int) {
-        val mainActivity = this
         supportFragmentManager.beginTransaction().apply {
             for (index in mFragments.indices) {
                 val fragment = mFragments[index]
