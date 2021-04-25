@@ -6,13 +6,12 @@ import cn.carveknife.carveknifewanandroid.http.interceptor.CookieInterceptor
 import cn.carveknife.carveknifewanandroid.http.interceptor.HeaderInterceptor
 import cn.carveknife.carveknifewanandroid.http.interceptor.LoggingInterceptor
 import com.blankj.utilcode.util.Utils
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 
@@ -34,13 +33,14 @@ class HttpManager private constructor() {
     }
 
     private fun <T> create(baseUrl: String, c: Class<T>): T {
+        val moshi = Moshi.Builder()
+            .addLast(KotlinJsonAdapterFactory())
+            .build()
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(provideOKHttpClient())
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
             .addConverterFactory(MoshiConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(c)
     }

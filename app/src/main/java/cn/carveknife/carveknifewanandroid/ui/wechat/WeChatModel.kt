@@ -9,5 +9,4 @@ import cn.carveknife.carveknifewanandroid.http.HttpManager
  * created by: cuibenguang
  */
 class WeChatModel(private val weChatRespository: WeChatRespository) : ViewModel() {
-    val wxChapter = weChatRespository.getWXChapters()
 }

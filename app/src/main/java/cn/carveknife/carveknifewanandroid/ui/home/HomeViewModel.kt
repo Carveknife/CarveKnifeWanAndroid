@@ -1,7 +1,12 @@
 package cn.carveknife.carveknifewanandroid.ui.home
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * description :
@@ -9,8 +14,16 @@ import androidx.lifecycle.ViewModel
  * created by: cuibenguang
  */
 class HomeViewModel(respository: HomeDataRepository) : ViewModel() {
-    private val pageSize = MutableLiveData<Int>()
-//    private val repoResult = Transformations.map() {
-//        respository.getArticleData()
-//    }
+    val articleValue: MutableLiveData<Article> = MutableLiveData()
+    private val size: Int = 0
+
+    init {
+        viewModelScope.launch {
+            val article = withContext(Dispatchers.IO) {
+                respository.getArticleData(size)
+            }
+            articleValue.postValue(article)
+        }
+    }
+
 }

@@ -13,14 +13,5 @@ import cn.carveknife.carveknifewanandroid.http.asyncSubscribe
  * created by: cuibenguang
  */
 class WeChatRespository(private val httpManager: HttpManager) {
-    fun getWXChapters(): LiveData<RequestState<List<Chapter>>> {
-        val liveData = MutableLiveData<RequestState<List<Chapter>>>()
-        httpManager.wanApi.getWXChapters()
-            .asyncSubscribe({
-                liveData.postValue(RequestState.success(it.data))
-            }, {
-                liveData.postValue(RequestState.error(it.message))
-            })
-        return liveData
-    }
+
 }

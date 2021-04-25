@@ -13,7 +13,7 @@ ext {
             support   : "30.0.0",
             lifecycle : "2.2.0",
             navigation: "2.0.0",
-            retrofit  : "2.4.0",
+            retrofit  : "2.8.1",
             glide     : "4.8.0"
     ]
 
@@ -36,6 +36,7 @@ ext {
 
             "retrofit"               : "com.squareup.retrofit2:retrofit:${dependenciesVersion.retrofit}",
             "adapter-rxjava"         : "com.squareup.retrofit2:adapter-rxjava2:${dependenciesVersion.retrofit}",
+            "adapter-moshi"          : "com.squareup.moshi:moshi-adapters:1.12.0",
             "converter-gson"         : "com.squareup.retrofit2:converter-gson:${dependenciesVersion.retrofit}",
             "converter-scalars"      : "com.squareup.retrofit2:converter-scalars:${dependenciesVersion.retrofit}",
             "okhttp"                 : "com.squareup.okhttp3:okhttp:3.4.2",

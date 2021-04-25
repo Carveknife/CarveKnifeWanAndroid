@@ -14,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
  * created time: 2020/11/23 17:36
  * created by: cuibenguang
  */
-@AndroidEntryPoint
 class WechatFragment:LazyBaseFragment<FragmentWechatBinding>() {
 
     private val viewModel by lazy {

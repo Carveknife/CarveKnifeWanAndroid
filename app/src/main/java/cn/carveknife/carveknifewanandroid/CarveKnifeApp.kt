@@ -9,7 +9,6 @@ import dagger.hilt.android.HiltAndroidApp
  * created time: 2020/11/18 16:12
  * created by: cuibenguang
  */
-@HiltAndroidApp
 class CarveKnifeApp : Application() {
     override fun onCreate() {
         super.onCreate()
