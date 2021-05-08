@@ -8,7 +8,7 @@ import com.squareup.moshi.JsonClass
  * Author: cuibg
  */
 @JsonClass(generateAdapter = true)
-data class HttPResponse<T>(
+data class HttpResponse<T>(
     @Json(name = "data")
     var data: T?,
     @Json(name = "errorCode")

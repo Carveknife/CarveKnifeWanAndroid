@@ -20,20 +20,4 @@ abstract class LazyBaseFragment<V : ViewBinding> : BaseFragment<V>() {
     }
 
     abstract fun lazyInit();
-
-    fun <T> handleData(requestState: LiveData<RequestState<T>>?, action: (T) -> Unit) {
-        requestState?.observe(this, Observer {
-            if (it.isLoading()) {
-
-            } else if (it.isSuccess()) {
-                if (it?.data != null) {
-                    action(it.data)
-                } else {
-
-                }
-            } else if (it.isError()) {
-
-            }
-        })
-    }
 }

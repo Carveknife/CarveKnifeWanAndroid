@@ -11,6 +11,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -33,14 +34,11 @@ class HttpManager private constructor() {
     }
 
     private fun <T> create(baseUrl: String, c: Class<T>): T {
-        val moshi = Moshi.Builder()
-            .addLast(KotlinJsonAdapterFactory())
-            .build()
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(provideOKHttpClient())
             .addConverterFactory(MoshiConverterFactory.create())
-//            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
             .create(c)
     }

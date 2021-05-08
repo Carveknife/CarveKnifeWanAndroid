@@ -6,5 +6,5 @@ package cn.carveknife.carveknifewanandroid.ui.home
  * created by: cuibenguang
  */
 interface HomeRepository {
-    suspend fun getArticleData(pageSize: Int): Article
+    fun getArticleData(pageSize: Int, callback: NetResponseCallback<Article>)
 }

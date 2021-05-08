@@ -2,8 +2,11 @@ package cn.carveknife.carveknifewanandroid.ui.home
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cn.carveknife.carveknifewanandroid.data.BaseViewModel
+import cn.carveknife.carveknifewanandroid.data.CraveKnifeNetRequestException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -13,17 +16,28 @@ import kotlinx.coroutines.withContext
  * created time: 2020/12/10 11:49
  * created by: cuibenguang
  */
-class HomeViewModel(respository: HomeDataRepository) : ViewModel() {
+class HomeViewModel(respository: HomeDataRepository) : BaseViewModel() {
+    private var mRespository: HomeDataRepository
     val articleValue: MutableLiveData<Article> = MutableLiveData()
-    private val size: Int = 0
+    val size: MutableLiveData<Int> = MutableLiveData()
+
 
     init {
-        viewModelScope.launch {
-            val article = withContext(Dispatchers.IO) {
-                respository.getArticleData(size)
+        this.mRespository = respository
+        requesArticleDatas()
+    }
+
+    fun requesArticleDatas() {
+        mRespository.getArticleData(size.value ?: 0, object : NetResponseCallback<Article> {
+            override fun loadSuccess(t: Article?) {
+                Log.i("shuangji",t?.curPage.toString())
+                articleValue.postValue(t)
             }
-            articleValue.postValue(article)
-        }
+
+            override fun loadError(craveKnifeNetRequestException: CraveKnifeNetRequestException) {
+                mCraveKnifeNetRequestException.postValue(craveKnifeNetRequestException)
+            }
+        })
     }
 
 }

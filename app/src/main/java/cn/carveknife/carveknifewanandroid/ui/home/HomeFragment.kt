@@ -2,13 +2,14 @@ package cn.carveknife.carveknifewanandroid.ui.home
 
 import android.util.Log
 import android.view.LayoutInflater
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import cn.carveknife.carveknifewanandroid.base.LazyBaseFragment
 import cn.carveknife.carveknifewanandroid.databinding.FragmentHomeBinding
 import cn.carveknife.carveknifewanandroid.http.HttpManager
-import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.sign
 
 class HomeFragment : LazyBaseFragment<FragmentHomeBinding>() {
     private var param1: String? = null
@@ -27,17 +28,15 @@ class HomeFragment : LazyBaseFragment<FragmentHomeBinding>() {
 
     override fun initView() {
         mViewBinding = FragmentHomeBinding.inflate(LayoutInflater.from(activity))
-
-        viewModel.run {
-            articleValue.observe(viewLifecycleOwner, Observer {
-                Log.i("shuangji",it.curPage.toString())
-            })
-        }
     }
 
     override fun lazyInit() {
         viewModel.run {
+            size.observe(viewLifecycleOwner, Observer {
+                viewModel.requesArticleDatas()
+            })
             articleValue.observe(viewLifecycleOwner, Observer {
+                Log.i("shuangji", it.curPage.toString())
             })
         }
     }
